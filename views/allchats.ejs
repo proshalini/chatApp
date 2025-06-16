@@ -10,7 +10,7 @@
 
 <body>
     <h1>All chats !!! :)</h1>
-    <a href="http://localhost:8080/chats/new"><button class="create">create chat</button></a>
+    <a href="/chats/new"><button class="create">create chat</button></a>
     <% for (let chat of chats) {%>
         <div class="all">
             <h4>From:<%=chat.from%>
@@ -25,8 +25,10 @@
                 <%=chat.created_at.toString().split(" ")[4]%></p>
             <p><%=chat.created_at.toString().split(" ").slice(0,4).join(" ")%></p>
             <div class="options">
-                    <a href=" http://localhost:8080/chats/<%=chat._id%>/edit"><button class="edit">Edit</button></a>
+                    <a href=" /chats/<%=chat._id%>/edit"><button class="edit">Edit</button></a>
                     <form method="POST" action="/chats/<%=chat.id%>?_method=DELETE"><button class="edit">delete</button>
+                    </form>
+                    <form method="GET" action="/chats/<%=chat.id%>"><button class="edit">show</button>
                     </form>
         </div>
 
